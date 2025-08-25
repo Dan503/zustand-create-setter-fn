@@ -1,6 +1,8 @@
 import './App.css'
 import { createSetterFn, type SetStateFn } from './core'
-import { create } from 'zustand'
+import { create, createStore } from 'zustand'
+import reactLogo from './assets/react-logo.svg'
+import jsLogo from './assets/javascript-logo.svg'
 
 interface CounterStore {
 	count: number
@@ -18,20 +20,29 @@ const useCounterStore = create<CounterStore>()((set) => {
 	}
 })
 
+const vanillaCounterStore = createStore<CounterStore>()((set) => {
+	// Even when using vanilla JS, you can still use this function like you would any React setState function
+	const setCount = createSetterFn(set, 'count')
+	return {
+		count: 0,
+		setCount,
+		increment: () => setCount((oldCount) => oldCount + 1),
+	}
+})
+
 function App() {
 	const { count, increment, setCount } = useCounterStore()
+	const { getState } = vanillaCounterStore
 
 	return (
 		<>
 			<h1>
-				Zustand <code>createSetterFn</code>
+				🐻 Zustand <code>createSetterFn</code> 🐻
 			</h1>
-			<div
-				className="card"
-				style={{ display: 'flex', gap: '1em', alignItems: 'center' }}
-			>
+			<div className="card">
 				<label style={{ display: 'flex', gap: '1em' }}>
-					<span>The count is</span>
+					<img src={reactLogo} height={25} width={25} />
+					<span>The React count is</span>
 					<input
 						type="text"
 						value={count}
@@ -45,6 +56,25 @@ function App() {
 					/>
 				</label>
 				<button onClick={increment}>increment</button>
+			</div>
+
+			<div className="card">
+				<label style={{ display: 'flex', gap: '1em' }}>
+					<img src={jsLogo} height={25} width={25} />
+					<span>The vanilla JS count is</span>
+					<input
+						type="text"
+						value={getState().count}
+						onChange={(e) => {
+							const value = parseInt(e.target.value)
+							if (isNaN(value)) {
+								return
+							}
+							getState().setCount(value)
+						}}
+					/>
+				</label>
+				<button onClick={getState().increment}>increment</button>
 			</div>
 		</>
 	)
