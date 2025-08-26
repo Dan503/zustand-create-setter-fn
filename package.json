@@ -2,7 +2,7 @@
 	"name": "zustand-create-setter-fn",
 	"description": "A utility for zustand that makes updating state much easier",
 	"private": false,
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
 		"start": "vite",
