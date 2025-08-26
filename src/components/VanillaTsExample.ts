@@ -5,6 +5,7 @@ interface CounterStore {
 	count: number
 	setCount: SetStateFn<number>
 	increment: () => void
+	reset: () => void
 }
 
 const vanillaCounterStore = createStore<CounterStore>()((set) => {
@@ -15,6 +16,7 @@ const vanillaCounterStore = createStore<CounterStore>()((set) => {
 		setCount,
 		// Even though this is vanilla JS, you can use setCount just like a React setState function
 		increment: () => setCount((oldCount) => oldCount + 1),
+		reset: () => setCount(0),
 	}
 })
 
@@ -30,19 +32,23 @@ export function initializeVanillaExample() {
 			<span>The vanilla TS count is</span>
 			<input type="text" />
 		</label>
-		<button>increment</button>
+		<button id="vanilla-increment">Increment</button>
+		<button id="vanilla-reset">Reset</button>
 `
 
 	const inputElem = container.querySelector<HTMLInputElement>('input')
-	const button = container.querySelector<HTMLButtonElement>('button')
+	const incrementButton =
+		container.querySelector<HTMLButtonElement>('#vanilla-increment')
+	const resetButton =
+		container.querySelector<HTMLButtonElement>('#vanilla-reset')
 
-	if (!inputElem || !button) {
+	if (!inputElem || !incrementButton || !resetButton) {
 		return
 	}
 
 	const { getState } = vanillaCounterStore
 	// updater functions can be retrieved once on initialization from the state like this
-	const { increment, setCount } = getState()
+	const { increment, reset, setCount } = getState()
 
 	updateInput()
 
@@ -56,8 +62,12 @@ export function initializeVanillaExample() {
 		updateInput()
 	}
 
-	button.onclick = () => {
+	incrementButton.onclick = () => {
 		increment()
+		updateInput()
+	}
+	resetButton.onclick = () => {
+		reset()
 		updateInput()
 	}
 
@@ -67,6 +77,5 @@ export function initializeVanillaExample() {
 		// For state values, `getState()` needs to be called each time they are used
 		//	This ensures that the
 		inputElem.value = getState().count.toString()
-		console.log('count:', getState().count)
 	}
 }

@@ -49,3 +49,22 @@
 .read-the-docs {
 	color: #888;
 }
+
+summary {
+	cursor: pointer;
+}
+
+code {
+	tab-size: 3;
+}
+
+.example-wrapper {
+	display: flex;
+	gap: 1em;
+	align-items: center;
+	justify-content: center;
+
+	& input {
+		width: 3em;
+	}
+}
