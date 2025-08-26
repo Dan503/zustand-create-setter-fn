@@ -67,7 +67,7 @@ export function initializeVanillaJsExample() {
 	function updateInput() {
 		if (!inputElem) return
 		// For state values, `getState()` needs to be called each time they are used
-		//	This ensures that the
+		//	This ensures that the value is always in sync with the state
 		inputElem.value = getState().count.toString()
 	}
 }
