@@ -60,11 +60,26 @@ code {
 
 .example-wrapper {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 1em;
 	align-items: center;
 	justify-content: center;
 
 	& input {
 		width: 3em;
+		text-align: center;
 	}
+}
+
+a {
+	color: yellow;
+
+	&:hover {
+		color: goldenrod;
+	}
+}
+
+.button-wrapper {
+	display: flex;
+	gap: 1em;
 }

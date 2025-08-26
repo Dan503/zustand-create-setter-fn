@@ -28,12 +28,14 @@ export function initializeVanillaExample() {
 
 	container.innerHTML = `
 		<label class="card__label">
-			<img src="/typescript-logo.svg" alt="" height="25" width="25" />
-			<span>The vanilla TS count is</span>
+			<img src="/typescript-logo.svg" alt="Vanilla TS example" height="25" width="25" />
+			<span>Count =</span>
 			<input type="text" />
 		</label>
-		<button id="vanilla-increment">Increment</button>
-		<button id="vanilla-reset">Reset</button>
+		<div class="button-wrapper">
+			<button id="vanilla-increment">Increment</button>
+			<button id="vanilla-reset">Reset</button>
+		</div>
 `
 
 	const inputElem = container.querySelector<HTMLInputElement>('input')

@@ -25,6 +25,17 @@ function App() {
 			<h1>
 				🐻 Zustand <code>createSetterFn</code> 🐻
 			</h1>
+			<p style={{ fontSize: '2em' }}>
+				<code>npm i zustand-create-setter-fn</code>
+			</p>
+			<p>
+				<a href="https://www.npmjs.com/package/zustand-create-setter-fn">
+					<code>createSetterFn</code>
+				</a>{' '}
+				is a fully type-safe small utility for{' '}
+				<a href="https://zustand.docs.pmnd.rs/">Zustand</a> that greatly
+				simplifies the code necessary for updating a Zustand store.
+			</p>
 			<ReactExample />
 			<CodeHighlighter>
 				{replaceImport(ReactExampleSource)}
@@ -40,7 +51,7 @@ function App() {
 				</CodeHighlighter>
 			</details>
 
-			<div className="card" id="vanilla-ts-example"></div>
+			<div className="example-wrapper" id="vanilla-ts-example"></div>
 
 			<details>
 				<summary>Vanilla TS code example</summary>

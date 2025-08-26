@@ -31,7 +31,7 @@ export function ReactExample() {
 
 	return (
 		<div className="example-wrapper">
-			<img src={reactLogo} height={25} width={25} />
+			<img src={reactLogo} height={25} width={25} alt="React example" />
 			<label htmlFor="react-input">Count = </label>
 			<input
 				id="react-input"
@@ -42,8 +42,10 @@ export function ReactExample() {
 					setCount(value)
 				}}
 			/>
-			<button onClick={increment}>Increment</button>
-			<button onClick={reset}>Reset</button>
+			<div className="button-wrapper">
+				<button onClick={increment}>Increment</button>
+				<button onClick={reset}>Reset</button>
+			</div>
 		</div>
 	)
 }

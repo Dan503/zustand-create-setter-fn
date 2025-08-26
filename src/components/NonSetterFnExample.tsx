@@ -56,8 +56,10 @@ export function NonSetterFnExample() {
 					setCount(value)
 				}}
 			/>
-			<button onClick={increment}>Increment</button>
-			<button onClick={reset}>Reset</button>
+			<div className="button-wrapper">
+				<button onClick={increment}>Increment</button>
+				<button onClick={reset}>Reset</button>
+			</div>
 		</div>
 	)
 }

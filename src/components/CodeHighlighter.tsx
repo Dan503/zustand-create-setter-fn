@@ -8,7 +8,13 @@ interface Props {
 
 export function CodeHighlighter({ children }: Props) {
 	return (
-		<div style={{ textAlign: 'left', overflow: 'auto', width: '100%' }}>
+		<div
+			style={{
+				textAlign: 'left',
+				overflow: 'auto',
+				maxWidth: 'calc(100vw - 40px)',
+			}}
+		>
 			<SyntaxHighlighter language="typescript" style={gruvboxDark}>
 				{children + '\n'}
 			</SyntaxHighlighter>
