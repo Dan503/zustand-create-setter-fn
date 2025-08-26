@@ -1,8 +1,17 @@
+h2 img {
+	transform: translateY(3px);
+}
+
 #root {
 	max-width: 1280px;
 	margin: 0 auto;
 	padding: 2rem;
 	text-align: center;
+}
+
+.outerSiteContainer {
+	display: grid;
+	gap: 3em;
 }
 
 .logo {

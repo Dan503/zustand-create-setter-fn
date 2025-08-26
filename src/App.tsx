@@ -1,12 +1,19 @@
 import './App.css'
 import { useEffect } from 'react'
 import { CodeHighlighter } from './components/CodeHighlighter'
-import { initializeVanillaExample } from './components/VanillaTsExample'
+import { initializeVanillaTsExample } from './components/VanillaTsExample'
+import { initializeVanillaJsExample } from './components/VanillaJsExample.js'
 import { default as VanillaExampleSource } from './components/VanillaTsExample.ts?raw'
+import { default as VanillaJSExampleSource } from './components/VanillaJsExample.js?raw'
 import { default as NonSetterFnExampleSource } from './components/NonSetterFnExample.tsx?raw'
 import { ReactExample } from './components/ReactExample'
 import { default as ReactExampleSource } from './components/ReactExample.tsx?raw'
 import pkg from '../package.json'
+import { NonSetterFnExample } from './components/NonSetterFnExample.js'
+import reactLogo from './assets/react-logo.svg'
+import javascriptLogo from './assets/javascript-logo.svg'
+import typescriptLogo from './assets/typescript-logo.svg'
+import githubLogo from './assets/github-logo.svg'
 
 function replaceImport(fileContent: string) {
 	const pkgName = `${pkg.name}`
@@ -17,49 +24,113 @@ function replaceImport(fileContent: string) {
 
 function App() {
 	useEffect(() => {
-		initializeVanillaExample()
+		initializeVanillaTsExample()
+		initializeVanillaJsExample()
 	}, [])
 
 	return (
-		<>
-			<h1>
-				🐻 Zustand <code>createSetterFn</code> 🐻
-			</h1>
-			<p style={{ fontSize: '2em' }}>
-				<code>npm i zustand-create-setter-fn</code>
-			</p>
+		<div className="outerSiteContainer">
+			<div className="intro">
+				<h1>
+					🐻 Zustand <code>createSetterFn</code> 🐻
+				</h1>
+				<p style={{ fontSize: '2em' }}>
+					<code>npm i zustand-create-setter-fn</code>
+				</p>
+				<p>
+					<a href="https://www.npmjs.com/package/zustand-create-setter-fn">
+						<code>createSetterFn</code>
+					</a>{' '}
+					is a fully type-safe small utility for{' '}
+					<a href="https://zustand.docs.pmnd.rs/">Zustand</a> that
+					greatly simplifies the code necessary for updating a Zustand
+					store.
+				</p>
+			</div>
+
+			<section>
+				<h2>
+					<img
+						src={reactLogo}
+						height={25}
+						width={25}
+						alt="React example"
+					/>{' '}
+					React example
+				</h2>
+				<ReactExample />
+				<CodeHighlighter>
+					{replaceImport(ReactExampleSource)}
+				</CodeHighlighter>
+			</section>
+
+			<section>
+				<h2>
+					🚫 React example but without <code>createSetterFn</code>
+				</h2>
+
+				<NonSetterFnExample />
+
+				<details>
+					<summary>
+						View the no <code>createSetterFn</code> code
+					</summary>
+
+					<CodeHighlighter>
+						{replaceImport(NonSetterFnExampleSource)}
+					</CodeHighlighter>
+				</details>
+			</section>
+
+			<section>
+				<h2>
+					<img src={typescriptLogo} height={25} width={25} alt="" />{' '}
+					Vanilla Typescript example
+				</h2>
+
+				<div className="example-wrapper" id="vanilla-ts-example"></div>
+
+				<details>
+					<summary>Vanilla TypeScript code</summary>
+					<CodeHighlighter>
+						{replaceImport(VanillaExampleSource)}
+					</CodeHighlighter>
+				</details>
+			</section>
+
+			<section>
+				<h2>
+					<img src={javascriptLogo} height={25} width={25} alt="" />{' '}
+					Vanilla JavaScript example
+				</h2>
+				<div className="example-wrapper" id="vanilla-js-example"></div>
+
+				<details>
+					<summary>Vanilla JavaScript code</summary>
+					<CodeHighlighter>
+						{replaceImport(VanillaJSExampleSource)}
+					</CodeHighlighter>
+				</details>
+			</section>
 			<p>
-				<a href="https://www.npmjs.com/package/zustand-create-setter-fn">
-					<code>createSetterFn</code>
-				</a>{' '}
-				is a fully type-safe small utility for{' '}
-				<a href="https://zustand.docs.pmnd.rs/">Zustand</a> that greatly
-				simplifies the code necessary for updating a Zustand store.
+				<a href="https://github.com/Dan503/zustand-create-setter-fn">
+					<img
+						src={githubLogo}
+						height={20}
+						width={20}
+						alt=""
+						style={{
+							background: '#fff',
+							borderRadius: '50%',
+							padding: '1px',
+							transform: 'translateY(4px)',
+							marginRight: 3,
+						}}
+					/>{' '}
+					View on GitHub
+				</a>
 			</p>
-			<ReactExample />
-			<CodeHighlighter>
-				{replaceImport(ReactExampleSource)}
-			</CodeHighlighter>
-
-			<details>
-				<summary>
-					Creating the same thing without <code>createSetterFn</code>
-				</summary>
-
-				<CodeHighlighter>
-					{replaceImport(NonSetterFnExampleSource)}
-				</CodeHighlighter>
-			</details>
-
-			<div className="example-wrapper" id="vanilla-ts-example"></div>
-
-			<details>
-				<summary>Vanilla TS code example</summary>
-				<CodeHighlighter>
-					{replaceImport(VanillaExampleSource)}
-				</CodeHighlighter>
-			</details>
-		</>
+		</div>
 	)
 }
 

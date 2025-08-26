@@ -1,14 +1,7 @@
 import { createStore } from 'zustand'
-import { createSetterFn, type SetStateFn } from '../core'
+import { createSetterFn } from '../core'
 
-interface CounterStore {
-	count: number
-	setCount: SetStateFn<number>
-	increment: () => void
-	reset: () => void
-}
-
-const vanillaCounterStore = createStore<CounterStore>()((set) => {
+const vanillaCounterStore = createStore()((set) => {
 	const setCount = createSetterFn(set, 'count') // ⬅️ createSetterFn() used here
 
 	return {
@@ -20,8 +13,8 @@ const vanillaCounterStore = createStore<CounterStore>()((set) => {
 	}
 })
 
-export function initializeVanillaTsExample() {
-	const container = document.getElementById('vanilla-ts-example')
+export function initializeVanillaJsExample() {
+	const container = document.getElementById('vanilla-js-example')
 	if (!container) {
 		return
 	}
@@ -32,17 +25,14 @@ export function initializeVanillaTsExample() {
 			<input type="text" />
 		</label>
 		<div class="button-wrapper">
-			<button id="vanilla-ts-increment">Increment</button>
-			<button id="vanilla-ts-reset">Reset</button>
+			<button id="vanilla-js-increment">Increment</button>
+			<button id="vanilla-js-reset">Reset</button>
 		</div>
 `
 
-	const inputElem = container.querySelector<HTMLInputElement>('input')
-	const incrementButton = container.querySelector<HTMLButtonElement>(
-		'#vanilla-ts-increment',
-	)
-	const resetButton =
-		container.querySelector<HTMLButtonElement>('#vanilla-ts-reset')
+	const inputElem = container.querySelector('input')
+	const incrementButton = container.querySelector('#vanilla-js-increment')
+	const resetButton = container.querySelector('#vanilla-js-reset')
 
 	if (!inputElem || !incrementButton || !resetButton) {
 		return
@@ -55,7 +45,7 @@ export function initializeVanillaTsExample() {
 	updateInput()
 
 	inputElem.oninput = (e) => {
-		const elem = e.target as HTMLInputElement
+		const elem = e.target
 		const value = parseInt(elem.value)
 		if (isNaN(value)) {
 			return

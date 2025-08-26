@@ -1,6 +1,5 @@
 import { create } from 'zustand'
 import { createSetterFn, type SetStateFn } from '../core/index'
-import reactLogo from '../assets/react-logo.svg'
 
 // Set up the Type interface (TS only)
 interface CounterStore {
@@ -31,7 +30,6 @@ export function ReactExample() {
 
 	return (
 		<div className="example-wrapper">
-			<img src={reactLogo} height={25} width={25} alt="React example" />
 			<label htmlFor="react-input">Count = </label>
 			<input
 				id="react-input"
