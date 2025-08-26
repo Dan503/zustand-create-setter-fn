@@ -3,6 +3,7 @@ import { createSetterFn, type SetStateFn } from './core'
 import { create, createStore } from 'zustand'
 import reactLogo from './assets/react-logo.svg'
 import jsLogo from './assets/javascript-logo.svg'
+import { useEffect } from 'react'
 
 interface CounterStore {
 	count: number
@@ -11,10 +12,7 @@ interface CounterStore {
 }
 
 const useCounterStore = create<CounterStore>()((set) => {
-	// Use this function like you would regular React setState functions
-	// One caveat: it creates a new function instance on every render
-	// This was unavoidable since the wrapping function is not actually a customHook
-	// so useMemo and useCallback are not able to be used to reduce rerenders
+	// Use this function like you would any regular React setState function
 	const setCount = createSetterFn(set, 'count')
 	return {
 		count: 0,
@@ -36,6 +34,11 @@ const vanillaCounterStore = createStore<CounterStore>()((set) => {
 function App() {
 	const { count, increment, setCount } = useCounterStore()
 	const { getState } = vanillaCounterStore
+
+	// Just to prove that setCount is not triggering rerenders
+	useEffect(() => {
+		console.log('setCount in dependency array triggered')
+	}, [setCount])
 
 	return (
 		<>
@@ -60,15 +63,6 @@ function App() {
 				</label>
 				<button onClick={increment}>increment</button>
 			</div>
-
-			<p>
-				Be aware that <code>createSetterFn</code> creates a new setter
-				function (<code>setCount</code>) instance on every render.
-			</p>
-			<p>
-				Do not include the setter function (<code>setCount</code>) in
-				any dependency arrays.
-			</p>
 
 			<div className="card">
 				<label style={{ display: 'flex', gap: '1em' }}>
