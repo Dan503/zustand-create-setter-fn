@@ -7,6 +7,7 @@
 		"url": "https://github.com/Dan503/zustand-create-setter-fn",
 		"directory": "/"
 	},
+	"license": "MIT",
 	"private": false,
 	"version": "1.0.0",
 	"type": "module",
