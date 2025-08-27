@@ -1,8 +1,5 @@
 import './App.css'
-import { useEffect } from 'react'
 import { CodeHighlighter } from './components/CodeHighlighter'
-import { initializeVanillaTsExample } from './examples/VanillaTsExample'
-import { initializeVanillaJsExample } from './examples/VanillaJsExample.js'
 import VanillaExampleSource from './examples/VanillaTsExample.ts?raw'
 import VanillaJSExampleSource from './examples/VanillaJsExample.js?raw'
 import NonSetterFnExampleSource from './examples/NonSetterFnExample.tsx?raw'
