@@ -4,9 +4,20 @@
 	"private": false,
 	"version": "1.0.0",
 	"type": "module",
+	"main": "npm/index.cjs",
+	"module": "npm/index.js",
+	"types": "npm/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./npm/index.d.ts",
+			"import": "./npm/index.js",
+			"require": "./npm/index.cjs"
+		}
+	},
 	"scripts": {
 		"start": "vite",
 		"build": "tsc -b && vite build",
+		"prepublishOnly": "tsup src/core/index.ts --format esm,cjs --dts --out-dir npm",
 		"test": "vitest",
 		"lint": "eslint .",
 		"preview": "vite preview"
@@ -28,6 +39,7 @@
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
 		"react-syntax-highlighter": "^15.6.6",
+		"tsup": "^8.5.0",
 		"typescript": "~5.8.3",
 		"typescript-eslint": "^8.39.1",
 		"vite": "^7.1.2",

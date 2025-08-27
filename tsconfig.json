@@ -5,6 +5,8 @@
 		{ "path": "./tsconfig.node.json" }
 	],
 	"compilerOptions": {
-		"types": ["vitest/globals", "vitest/importMeta", "vite/client"]
+		"types": ["vitest/globals", "vitest/importMeta", "vite/client"],
+		"module": "es2015",
+		"moduleResolution": "bundler"
 	}
 }
