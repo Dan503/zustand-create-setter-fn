@@ -32,8 +32,14 @@ function App() {
 	return (
 		<div className="outerSiteContainer">
 			<div className="intro">
-				<h1>
-					🐻 Zustand <code>createSetterFn</code> 🐻
+				<h1
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						gap: '0.2em',
+					}}
+				>
+					🐻 <span>Zustand Create Setter Function</span> 🐻
 				</h1>
 				<p style={{ fontSize: '2em' }}>
 					<code>npm i zustand-create-setter-fn</code>
