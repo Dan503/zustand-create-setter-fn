@@ -15,6 +15,8 @@ import javascriptLogo from './assets/javascript-logo.svg'
 import typescriptLogo from './assets/typescript-logo.svg'
 import githubLogo from './assets/github-logo.svg'
 import npmLogo from './assets/npm-logo.svg'
+import { VanillaTsExampleComponent } from './examples/VanillaTsExampleComponent.js'
+import { VanillaJsExampleComponent } from './examples/VanillaJsExampleComponent.jsx'
 
 function replaceImport(fileContent: string) {
 	const pkgName = `${pkg.name}`
@@ -24,11 +26,6 @@ function replaceImport(fileContent: string) {
 }
 
 function App() {
-	useEffect(() => {
-		initializeVanillaTsExample()
-		initializeVanillaJsExample()
-	}, [])
-
 	return (
 		<div className="outerSiteContainer">
 			<div className="intro">
@@ -95,7 +92,7 @@ function App() {
 					Vanilla Typescript example
 				</h2>
 
-				<div className="example-wrapper" id="vanilla-ts-example"></div>
+				<VanillaTsExampleComponent />
 
 				<details>
 					<summary>Vanilla TypeScript code</summary>
@@ -110,7 +107,7 @@ function App() {
 					<img src={javascriptLogo} height={25} width={25} alt="" />{' '}
 					Vanilla JavaScript example
 				</h2>
-				<div className="example-wrapper" id="vanilla-js-example"></div>
+				<VanillaJsExampleComponent />
 
 				<details>
 					<summary>Vanilla JavaScript code</summary>
