@@ -17,7 +17,7 @@
 	"scripts": {
 		"start": "vite",
 		"build": "tsc -b && vite build",
-		"prepublishOnly": "tsup src/core/index.ts --format esm,cjs --dts --out-dir npm",
+		"prepublishOnly": "vitest run && tsup src/core/index.ts --format esm,cjs --dts --out-dir npm",
 		"test": "vitest",
 		"lint": "eslint .",
 		"preview": "vite preview"
