@@ -14,6 +14,7 @@ import reactLogo from './assets/react-logo.svg'
 import javascriptLogo from './assets/javascript-logo.svg'
 import typescriptLogo from './assets/typescript-logo.svg'
 import githubLogo from './assets/github-logo.svg'
+import npmLogo from './assets/npm-logo.svg'
 
 function replaceImport(fileContent: string) {
 	const pkgName = `${pkg.name}`
@@ -112,24 +113,42 @@ function App() {
 					</CodeHighlighter>
 				</details>
 			</section>
-			<p>
-				<a href="https://github.com/Dan503/zustand-create-setter-fn">
-					<img
-						src={githubLogo}
-						height={20}
-						width={20}
-						alt=""
-						style={{
-							background: '#fff',
-							borderRadius: '50%',
-							padding: '1px',
-							transform: 'translateY(4px)',
-							marginRight: 3,
-						}}
-					/>{' '}
-					View on GitHub
-				</a>
-			</p>
+			<div>
+				<p>
+					<a href="https://github.com/Dan503/zustand-create-setter-fn">
+						<img
+							src={githubLogo}
+							height={20}
+							width={20}
+							alt=""
+							className="logoImg"
+							style={{
+								background: '#fff',
+								borderRadius: '50%',
+								padding: '1px',
+								transform: 'translateY(4px)',
+								marginRight: 3,
+							}}
+						/>{' '}
+						View on GitHub
+					</a>
+				</p>
+				<p>
+					<a href="https://www.npmjs.com/package/zustand-create-setter-fn">
+						<img
+							src={npmLogo}
+							height={20}
+							width={20}
+							alt=""
+							style={{
+								transform: 'translateY(4px)',
+								marginRight: 3,
+							}}
+						/>{' '}
+						View on npm
+					</a>
+				</p>
+			</div>
 		</div>
 	)
 }
