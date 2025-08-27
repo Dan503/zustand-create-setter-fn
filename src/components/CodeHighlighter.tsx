@@ -11,7 +11,6 @@ export function CodeHighlighter({ children }: Props) {
 		<div
 			style={{
 				textAlign: 'left',
-				overflow: 'auto',
 				maxWidth: 'calc(100vw - 40px)',
 			}}
 		>
