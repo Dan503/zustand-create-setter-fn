@@ -1,6 +1,12 @@
 {
 	"name": "zustand-create-setter-fn",
 	"description": "A utility for zustand that makes updating state much easier",
+	"homepage": "https://dan503.github.io/zustand-create-setter-fn/",
+	"repository": {
+		"type": "GitHub",
+		"url": "https://github.com/Dan503/zustand-create-setter-fn",
+		"directory": "/"
+	},
 	"private": false,
 	"version": "1.0.0",
 	"type": "module",
