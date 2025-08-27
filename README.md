@@ -6,7 +6,60 @@
 [![bundle size](https://img.shields.io/bundlephobia/minzip/zustand-create-setter-fn)](https://bundlephobia.com/package/zustand-create-setter-fn)
 [![install size](https://packagephobia.com/badge?p=zustand-create-setter-fn)](https://packagephobia.com/result?p=zustand-create-setter-fn)
 
-> ## [View the demo site](https://dan503.github.io/zustand-create-setter-fn/)
+> ## [🌐 View the demo site](https://dan503.github.io/zustand-create-setter-fn/)
+
+## Why use this?
+
+In short it turns this:
+
+```ts
+const useCounterStore = create<CounterStore>()((set) => {
+	return {
+		count: 0,
+
+		// So much boilerplate!
+		// You have to repeat this for every setter function in the state.
+		setCount: (nextCount: SetStateFnParam<number>) => {
+			set((prevState) => ({
+				count:
+					typeof nextCount === 'function'
+						? nextCount(prevState.count)
+						: nextCount,
+			}))
+		},
+
+		// This is cleaner than the above setCount example,
+		// though it is still more verbose than using
+		// increment: () => setCount(prev => prev + 1)
+		increment: () => {
+			set((prevState) => ({
+				count: prevState.count + 1,
+			}))
+		},
+
+		reset: () => {
+			set(() => ({ count: 0 }))
+		},
+	}
+})
+```
+
+Into this:
+
+```ts
+const useCounterStore = create<CounterStore>()((set) => {
+	const setCount = createSetterFn(set, 'count') // ⬅️ createSetterFn used here
+
+	return {
+		count: 0,
+		setCount,
+		// Pass in a function to use the previous state as part of the new state
+		increment: () => setCount((prevCount) => prevCount + 1),
+		// Pass in a value directly to set to that exact value
+		reset: () => setCount(0),
+	}
+})
+```
 
 ## Install
 
@@ -143,6 +196,8 @@ export function NonSetterFnExample() {
 ```
 
 ## Vanilla Typescript Example
+
+Yes, this utility can work with any framework, not just React. Zustand is doing the majority of the heavy lifting on the state front.
 
 ```ts
 import { createStore } from 'zustand'
