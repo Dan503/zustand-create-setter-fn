@@ -1,6 +1,6 @@
 {
 	"name": "zustand-create-setter-fn",
-	"description": "A utility for zustand that makes updating state much easier",
+	"description": "A fully type safe utility for Zustand that allows you to easily update state using React style `setState` functions (framework agnostic, doesn't require React).",
 	"homepage": "https://dan503.github.io/zustand-create-setter-fn/",
 	"repository": {
 		"type": "GitHub",
