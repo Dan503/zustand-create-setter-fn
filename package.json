@@ -25,8 +25,7 @@
 		"npm/",
 		"README.md",
 		"LICENSE",
-		"src/assets/github-logo.svg",
-		"src/assets/npm-logo.svg",
+		"src/assets",
 		"src/core/index.ts"
 	],
 	"publishConfig": {

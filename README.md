@@ -8,23 +8,34 @@
 
 A fully type safe utility for Zustand that allows you to easily update state using React style `setState` functions (framework agnostic, doesn't require React).
 
+## 📥 Install
+
+<img src="./src/assets/npm-logo.svg" alt="install with npm" height="14" width="14"> `npm i zustand-create-setter-fn`
+
+<img src="./src/assets/pnpm-logo.svg" alt="install with pnpm" height="14" width="14"> `pnpm add zustand-create-setter-fn`
+
+<img src="./src/assets/yarn-logo.svg" alt="install with Yarn" height="14" width="14"> `yarn add zustand-create-setter-fn`
+
+<img src="./src/assets/bun-logo.svg" alt="install with Bun" height="14" width="14"> `bun add zustand-create-setter-fn`
+
+
 ## [🌐 View the demo site](https://dan503.github.io/zustand-create-setter-fn/)
 
 <p>
     <a href="https://github.com/Dan503/zustand-create-setter-fn">
-        <img src="./src/assets/github-logo.svg" width="15" height="15" alt="" />
+        <img src="./src/assets/github-logo.svg" width="14" height="14" alt="" />
         <span> View on GitHub</span>
     </a>
 </p>
 
 <p>
     <a href="https://www.npmjs.com/package/zustand-create-setter-fn">
-        <img src="./src/assets/npm-logo.svg" width="15" height="15" alt="" />
+        <img src="./src/assets/npm-logo.svg" width="14" height="14" alt="" />
         <span> View on npm</span>
     </a>
 </p>
 
-## Why use this?
+## 🤔 Why use this?
 
 In short it turns this:
 
@@ -77,23 +88,15 @@ const useCounterStore = create<CounterStore>()((set) => {
 })
 ```
 
-## Install
+## <img src="./src/assets/react-logo.svg" height="24" width="24"> Example usage in React
 
-**npm**: `npm i zustand-create-setter-fn`
-
-**pnpm**: `pnpm add zustand-create-setter-fn`
-
-**yarn**: `yarn add zustand-create-setter-fn`
-
-**bun**: `bun add zustand-create-setter-fn`
-
-## Usage
+`createSetterFn` is framework agnostic. It does not need React in order to work. React is a popular framework though and the `createSetterFn` API is based on the React `useState` setter function, so I'll use React for this example.
 
 ```tsx
 import { create } from 'zustand'
 import { createSetterFn, type SetStateFn } from 'zustand-create-setter-fn'
 
-// Set up the Type interface (TS only)
+// Set up the type interface (only necessary if using TypeScript)
 interface CounterStore {
    count: number
    setCount: SetStateFn<number>
@@ -141,7 +144,9 @@ export function ReactExample() {
 }
 ```
 
-## Same thing but without using `createSetterFn`
+## 🚫 Same thing but without using `createSetterFn`
+
+A demonstration of the amount of additional code needed to achieve the same functionality as the above example without using `createSetterFn`.
 
 ```tsx
 import { create } from 'zustand'
@@ -211,13 +216,13 @@ export function NonSetterFnExample() {
 }
 ```
 
-## Vanilla Typescript Example
+## <img src="./src/assets/typescript-logo.svg" height="24" width="24" /> Vanilla TypeScript Example
 
-Yes, this utility can work with any framework, not just React. Zustand is doing the majority of the heavy lifting on the state front.
+A demonstration of how this utility can work even with no framework at all. Zustand is doing the majority of the heavy lifting on the state front.
 
 ```ts
 import { createStore } from 'zustand'
-import { createSetterFn, type SetStateFn } from '../core'
+import { createSetterFn, type SetStateFn } from 'zustand-create-setter-fn'
 
 interface CounterStore {
    count: number
