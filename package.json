@@ -56,5 +56,26 @@
 	},
 	"peerDependencies": {
 		"zustand": ">=3.0.2"
-	}
+	},
+	"keywords": [
+		"zustand",
+		"react-zustand",
+		"zustand-utils",
+		"zustand-vanilla",
+		"state-management",
+		"state-setter",
+		"setter-function",
+		"create-setter",
+		"set-state",
+		"setstate",
+		"state-updater",
+		"store-setter",
+		"store-updater",
+		"update-state",
+		"typescript",
+		"type-safe",
+		"generics",
+		"factory",
+		"utility"
+	]
 }
