@@ -8,7 +8,18 @@
 
 A fully type safe utility for Zustand that allows you to easily update state using React style `setState` functions (framework agnostic, doesn't require React).
 
-> ## [🌐 View the demo site](https://dan503.github.io/zustand-create-setter-fn/)
+## [🌐 View the demo site](https://dan503.github.io/zustand-create-setter-fn/)
+
+<p style="display: flex; gap: 1em;">
+    <a href="https://github.com/Dan503/zustand-create-setter-fn" style="display: flex; align-items: center; gap: 0.5em;">
+        <img src="./src/assets/github-logo.svg" width="20" style="background:white; border-radius:50%;border: 2px solid white" alt="" />
+        <span>View on GitHub</span>
+    </a>
+    <a href="https://www.npmjs.com/package/zustand-create-setter-fn" style="display: flex; align-items: center; gap: 0.5em;">
+        <img src="./src/assets/npm-logo.svg" width="20" style="background:white; border: 2px solid white" alt="" />
+        <span>View on npm</span>
+    </a>
+</p>
 
 ## Why use this?
 
