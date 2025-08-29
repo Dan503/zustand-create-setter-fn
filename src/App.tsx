@@ -30,6 +30,7 @@ function App() {
 					style={{
 						display: 'flex',
 						alignItems: 'center',
+						justifyContent: 'center',
 						gap: '0.2em',
 					}}
 				>
