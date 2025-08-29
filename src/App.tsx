@@ -39,15 +39,16 @@ function App() {
 				<p style={{ fontSize: '2em' }}>
 					<code>npm i zustand-create-setter-fn</code>
 				</p>
-				<p>
-					<a href="https://www.npmjs.com/package/zustand-create-setter-fn">
-						<code>createSetterFn</code>
-					</a>{' '}
-					is a fully type-safe small utility for{' '}
-					<a href="https://zustand.docs.pmnd.rs/">Zustand</a> that
-					greatly simplifies the code necessary for updating a Zustand
-					store.
-				</p>
+				<p
+					dangerouslySetInnerHTML={{
+						__html: pkg.description
+							.replace(
+								'Zustand',
+								"<a href='https://zustand.docs.pmnd.rs/'>Zustand</a>",
+							)
+							.replace(/`(.+?)`/, '<code>$1</code>'),
+					}}
+				></p>
 			</div>
 
 			<section>
