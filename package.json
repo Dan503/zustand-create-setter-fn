@@ -9,7 +9,7 @@
 	},
 	"license": "MIT",
 	"private": false,
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"type": "module",
 	"main": "npm/index.cjs",
 	"module": "npm/index.js",
