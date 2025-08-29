@@ -1,8 +1,8 @@
 import type { StoreApi } from 'zustand'
 
-/** The parameter of a setState function */
+/** The parameter of a `setState` function */
 export type SetStateFnParam<T> = T | ((oldState: T) => T)
-/** This type is compatible with React setState functions */
+/** The type of a `setState` function. Compatible with React `setState` functions. */
 export type SetStateFn<T> = (newState: SetStateFnParam<T>) => void
 
 /**
@@ -10,12 +10,13 @@ export type SetStateFn<T> = (newState: SetStateFnParam<T>) => void
  *
  * ```ts
  *  import { create } 'zustand';
- *  import { createSetterFn, SetStateFn } from 'zustand-create-setter-fn';
+ *  import { createSetterFn, type SetStateFn } from 'zustand-create-setter-fn';
  *
  *  interface CounterStore {
  *    count: number
  *    setCount: SetStateFn<number>
  *    increment: () => void
+ *    reset: () => void
  * }
  *
  * const useCounterStore = create<CounterStore>()((set) => {
@@ -25,7 +26,10 @@ export type SetStateFn<T> = (newState: SetStateFnParam<T>) => void
  *   return {
  *     count: 0,
  *     setCount,
+ *     // Pass in a function to use the previous state as part of the new state
  *     increment: () => setCount(oldCount => oldCount + 1),
+ *     // Pass in a value directly to set the state to that exact value
+ *     reset: () => setCount(0),
  *   }
  * })
  * ```

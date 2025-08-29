@@ -18,7 +18,7 @@ const useCounterStore = create<CounterStore>()((set) => {
 		setCount,
 		// Pass in a function to use the previous state as part of the new state
 		increment: () => setCount((prevCount) => prevCount + 1),
-		// Pass in a value directly to set to that exact value
+		// Pass in a value directly to set the state to that exact value
 		reset: () => setCount(0),
 	}
 })
