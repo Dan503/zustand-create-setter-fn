@@ -8,17 +8,6 @@
 
 A fully type safe utility for Zustand that allows you to easily update state using React style `setState` functions (framework agnostic, doesn't require React).
 
-## 📥 Install
-
-<img src="./src/assets/npm-logo.svg" alt="install with npm" height="14" width="14"> `npm i zustand-create-setter-fn`
-
-<img src="./src/assets/pnpm-logo.svg" alt="install with pnpm" height="14" width="14"> `pnpm add zustand-create-setter-fn`
-
-<img src="./src/assets/yarn-logo.svg" alt="install with Yarn" height="14" width="14"> `yarn add zustand-create-setter-fn`
-
-<img src="./src/assets/bun-logo.svg" alt="install with Bun" height="14" width="14"> `bun add zustand-create-setter-fn`
-
-
 ## [🌐 View the demo site](https://dan503.github.io/zustand-create-setter-fn/)
 
 <p>
@@ -34,6 +23,16 @@ A fully type safe utility for Zustand that allows you to easily update state usi
         <span> View on npm</span>
     </a>
 </p>
+
+## 📥 Install
+
+<img src="./src/assets/npm-logo.svg" alt="install with npm" height="14" width="14"> `npm i zustand-create-setter-fn`
+
+<img src="./src/assets/pnpm-logo.svg" alt="install with pnpm" height="14" width="14"> `pnpm add zustand-create-setter-fn`
+
+<img src="./src/assets/yarn-logo.svg" alt="install with Yarn" height="14" width="14"> `yarn add zustand-create-setter-fn`
+
+<img src="./src/assets/bun-logo.svg" alt="install with Bun" height="14" width="14"> `bun add zustand-create-setter-fn`
 
 ## 🤔 Why use this?
 
