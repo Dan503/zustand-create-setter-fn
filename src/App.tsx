@@ -52,6 +52,22 @@ function App() {
 			</div>
 
 			<section>
+				<h2>🤔 Why use this?</h2>
+
+				<p>In Short, it turns this:</p>
+
+				<CodeHighlighter>
+					{getSmallCodeSample(NonSetterFnExampleSource)}
+				</CodeHighlighter>
+
+				<p>Into this:</p>
+
+				<CodeHighlighter>
+					{getSmallCodeSample(ReactExampleSource)}
+				</CodeHighlighter>
+			</section>
+
+			<section>
 				<h2>
 					<img
 						src={reactLogo}
@@ -62,9 +78,13 @@ function App() {
 					React example
 				</h2>
 				<ReactExample />
-				<CodeHighlighter>
-					{replaceImport(ReactExampleSource)}
-				</CodeHighlighter>
+				<details>
+					<summary>View the React example code</summary>
+
+					<CodeHighlighter>
+						{replaceImport(ReactExampleSource)}
+					</CodeHighlighter>
+				</details>
 			</section>
 
 			<section>
@@ -152,6 +172,13 @@ function App() {
 				</p>
 			</div>
 		</div>
+	)
+}
+
+function getSmallCodeSample(fullCodeSource: string) {
+	return fullCodeSource.substring(
+		fullCodeSource.indexOf('const useCounterStore'),
+		fullCodeSource.indexOf('}\n})') + 5,
 	)
 }
 
