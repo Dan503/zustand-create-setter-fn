@@ -6,6 +6,8 @@
 [![bundle size](https://img.shields.io/bundlephobia/minzip/zustand-create-setter-fn)](https://bundlephobia.com/package/zustand-create-setter-fn)
 [![install size](https://packagephobia.com/badge?p=zustand-create-setter-fn)](https://packagephobia.com/result?p=zustand-create-setter-fn)
 
+A fully type safe utility for Zustand that allows you to easily update state using React style `setState` functions (framework agnostic, doesn't require React).
+
 > ## [🌐 View the demo site](https://dan503.github.io/zustand-create-setter-fn/)
 
 ## Why use this?
